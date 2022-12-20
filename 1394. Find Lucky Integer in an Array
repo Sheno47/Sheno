@@ -1,0 +1,19 @@
+public class Solution {
+    public int FindLucky(int[] nums) {
+        int luckyInt = -1;
+        Dictionary<int, int> dict = new Dictionary<int, int>();
+        for(int i = 0; i < nums.Length; i++)
+            if(dict.ContainsKey(nums[i])){
+                dict[nums[i]] = dict[nums[i]] + 1;
+            }else{
+                dict.Add(nums[i], 1);
+            }
+        foreach(var items in dict){
+            if(items.Key == items.Value && items.Key > luckyInt){
+                luckyInt = items.Key;
+            }
+        }
+        
+        return luckyInt;
+    }
+}
