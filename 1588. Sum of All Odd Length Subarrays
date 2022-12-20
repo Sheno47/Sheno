@@ -1,0 +1,25 @@
+public class Solution {
+    public int SumOddLengthSubarrays(int[] arr) {
+        
+        var sumOdd = 0;
+        var oddIncr = 1;
+        while (oddIncr <= arr.Length) { 
+            for (var l = 0; l < arr.Length; l++) {
+                var i = l; 
+                if (i + oddIncr - 1 >= arr.Length) { 
+                    continue; // Out of bound
+                }
+                
+                int c = 0;
+                while (c < oddIncr) { 
+                    sumOdd += arr[i++]; 
+                    c++;
+                }
+            }
+            
+            oddIncr += 2;
+        }
+        
+        return sumOdd;
+    }
+}
