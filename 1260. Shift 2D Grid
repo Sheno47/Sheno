@@ -1,0 +1,16 @@
+public class Solution {
+    public IList<IList<int>> ShiftGrid(int[][] grid, int k) {
+	var n = grid.Length;
+	var m = grid[0].Length;
+	var result = new int[n][];
+	for (var i = 0; i < n; i++) result[i] = new int[m];
+	for (var i = 0; i < n; i++) {
+		for (var j = 0; j < m; j++) {
+			var oldPos = i * m + j;
+			var newPos = (oldPos + k) % (m * n);
+			result[newPos / m][newPos % m] = grid[i][j];
+		}
+	}
+	return result;
+}
+}
