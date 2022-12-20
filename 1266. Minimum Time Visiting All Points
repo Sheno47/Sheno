@@ -1,0 +1,15 @@
+public class Solution {
+    public int MinTimeToVisitAllPoints(int[][] points) {
+        
+        int minDist = 0;
+        
+        for(int ii = 0; ii < points.Length - 1; ii++){            
+            int xDist = Math.Abs(points[ii][0] - points[ii+1][0]);            
+            int yDist = Math.Abs(points[ii][1] - points[ii+1][1]);
+            
+            minDist += Math.Max(xDist, yDist);
+        }
+        
+        return minDist;
+    }
+}
