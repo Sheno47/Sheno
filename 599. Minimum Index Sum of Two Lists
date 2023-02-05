@@ -1,0 +1,32 @@
+public class Solution
+        {
+            public string[] FindRestaurant(string[] list1, string[] list2)
+            {
+                Dictionary<string, int> record = new Dictionary<string, int>();
+                List<string> result = new List<string>();
+
+                for(int i = 0;i<list1.Length ;i++)
+                {
+                    record.Add(list1[i], i);
+                }
+
+                int min = 2001;
+                for(int i = 0;i<list2.Length; i++)
+                {
+                    if (record.ContainsKey(list2[i]))
+                    {
+                        if (record[list2[i]] + i < min)
+                        {
+                            min = record[list2[i]] + i;
+                            result.Clear();
+                            result.Add(list2[i]);
+                        }else if (record[list2[i]] + i == min)
+                        {
+                            result.Add(list2[i]);
+                        }
+                    }
+                }
+
+                return result.ToArray();
+            }
+        }
