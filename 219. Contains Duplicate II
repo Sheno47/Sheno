@@ -1,0 +1,28 @@
+public class Solution {
+    public bool ContainsNearbyDuplicate(int[] nums, int k) {
+        int n = nums.Length;
+        Dictionary<int, int[]> dict = new();
+        
+        for(int i = 0; i < n; i++)
+        {
+            int num = nums[i];
+            if(!dict.ContainsKey(num))
+                dict.Add(num, new int[] { i, -1 });
+            else
+            {
+                if(dict[num][1] == -1)
+                    dict[num][1] = i;
+                else
+                {
+                    dict[num][0] = dict[num][1];
+                    dict[num][1] = i;
+                }
+                
+                if(dict[num][1] - dict[num][0] <= k)
+                    return true;
+            }
+        }
+        
+        return false;
+    }
+}
