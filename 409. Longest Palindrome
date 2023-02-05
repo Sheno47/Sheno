@@ -1,0 +1,14 @@
+public class Solution {
+    public int LongestPalindrome(string s) {
+        int longestPalindrome = 0;
+        bool found = false;
+        var g = s.GroupBy(x => x);
+        foreach(var grp in g){
+            if(grp.Count() > 1 && grp.Count() % 2==0){ longestPalindrome += grp.Count();}
+            else if(grp.Count() > 1 && grp.Count() % 2 !=0){ longestPalindrome += grp.Count()-1;
+            longestPalindrome += found? 0 :1;found=true;}
+            else if(grp.Count() == 1 && found==false){found = true;longestPalindrome++;}
+        }
+        return longestPalindrome;
+    }
+}
