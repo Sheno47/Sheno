@@ -1,0 +1,49 @@
+public int CountConsistentStrings(string allowed, string[] words) {
+        HashSet<char> chars = new HashSet<char>();
+        int count = 0;
+        
+        for(int i=0; i<allowed.Length; i++){
+            chars.Add(allowed[i]);
+        }
+        
+        for(int i=0; i<words.Length; i++){
+            bool isAllowed = true;
+                
+            for(int j=0; j<words[i].Length; j++){
+                if(!chars.Contains(words[i][j])){
+                    isAllowed = false;
+                    break;                    
+                }
+            }
+            
+            if(isAllowed)
+                count++;
+        }
+        
+        return count;
+    }public class Solution {
+    public int CountConsistentStrings(string allowed, string[] words) {
+        HashSet<char> chars = new HashSet<char>();
+        int count = 0;
+        
+        for(int i=0; i<allowed.Length; i++){
+            chars.Add(allowed[i]);
+        }
+        
+        for(int i=0; i<words.Length; i++){
+            bool isAllowed = true;
+                
+            for(int j=0; j<words[i].Length; j++){
+                if(!chars.Contains(words[i][j])){
+                    isAllowed = false;
+                    break;                    
+                }
+            }
+            
+            if(isAllowed)
+                count++;
+        }
+        
+        return count;
+    }
+}
