@@ -1,0 +1,16 @@
+public class Solution {
+    public int MaxDepth(string s) {
+        var counter = 0;
+        var maxParanthesis = int.MinValue;
+
+        foreach (char c in s)
+        {
+            if (c == '(') counter++;
+            if (c == ')') counter--;
+
+            maxParanthesis = Math.Max(maxParanthesis, counter);
+        }
+
+        return maxParanthesis;
+    }
+}
