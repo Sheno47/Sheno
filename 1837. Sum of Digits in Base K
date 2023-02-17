@@ -1,0 +1,10 @@
+class Solution:
+    def sumBase(self, n: int, k: int) -> int:
+        result = 0
+        
+        # make repeated divmods to get the digits and
+        # the leftover number
+        while n:
+            n, res = divmod(n, k)
+            result += res
+        return result
