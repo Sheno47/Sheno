@@ -1,0 +1,25 @@
+class Solution(object):
+    def backspaceCompare(self, s, t):
+        def convert_string(string): 
+            build_Array = [] 
+            for i in string:
+                if i != "#":
+                    build_Array.append(i)
+                else:
+                    try:
+                        build_Array.pop()
+                    except:
+                        pass
+            return build_Array
+        finalS = convert_string(s)
+        finalT = convert_string(t)
+        
+        if len(finalS) != len(finalT):
+            
+            return False  
+        else:
+            for p in range(len(finalS)): 
+                if finalS[p] != finalT[p]:
+                   
+                    return False
+        return True  not match
